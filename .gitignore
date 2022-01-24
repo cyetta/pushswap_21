@@ -1,0 +1,11 @@
+.DS_Store
+.vscode/
+client
+server
+*.o
+*.d
+*.a
+push_swap
+checker
+libft.a
+en.subject.pdf
