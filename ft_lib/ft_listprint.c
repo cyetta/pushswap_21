@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cstack.h                                           :+:      :+:    :+:   */
+/*   ft_listprint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 00:07:34 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/25 19:57:56 by cyetta           ###   ########.fr       */
+/*   Created: 2022/01/25 20:17:01 by cyetta            #+#    #+#             */
+/*   Updated: 2022/01/25 20:26:10 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CSTACK_H
-# define CSTACK_H
+#include <unistd.h>
+#include "cstack.h"
+#include "libft.h"
 
-typedef struct s_list
+void	ft_lstprint(t_head hd)
 {
-	int				value;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_list;
+	while (hd.quantity--)
+	{
+		ft_itoan(hd.lst_hd->value);
+		hd.lst_hd = hd.lst_hd->next;
+	}
+}
 
-typedef struct s_lsthead
+void	ft_lstrprint(t_head hd)
 {
-	int		quantity;
-	t_list	*lst_hd;
-}	t_head;
-
-int		load_list(t_head *head, int argc, char **argv);
-int		ft_lstaddfront(t_head *hd, t_list *lst);
-int		ft_lstaddback(t_head *hd, t_list *lst);
-void	ft_lsthdinit(t_head *hd);
-t_list	*ft_lstnew(int val);
-#endif
+	while (hd.quantity--)
+	{
+		hd.lst_hd = hd.lst_hd->prev;
+		ft_itoan(hd.lst_hd->value);
+	}
+}
