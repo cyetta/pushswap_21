@@ -1,6 +1,7 @@
 LIBNAME = libft.a
 
-SRCN = ft_atoi.c ft_errno.c ft_isdigit.c ft_isspace.c ft_strlen.c
+SRCN =ft_atoi.c ft_errno.c ft_isdigit.c ft_isspace.c ft_itoa.c ft_strlen.c \
+		ft_listld.c
 
 OBJ = ${SRCN:.c=.o}
 

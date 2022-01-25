@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 02:32:16 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/24 04:01:28 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/01/25 01:01:43 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 /*
 write error message to stderr, defined by err arg
+0 - no error
+1-5 defined error with text msg, other - undefided error
 */
 int	ft_errno(int err)
 {

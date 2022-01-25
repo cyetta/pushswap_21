@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 14:54:25 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/24 04:14:51 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/01/25 01:41:26 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	ft_skip_to_dig(char **str)
 Converting ascii numbers in the string to integer
 if no numbers found returned 2 and result=0
 if int32 overflowed returned 1 and resault undefined.
-if conversion no error returned 0 and int32 value
+if conversion no error returned 0 and int32 value.
 conversion ends on last number in string or resault overflow,
 rest symbols in string not parsed
 */

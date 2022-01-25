@@ -6,29 +6,22 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 00:59:19 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/24 04:04:35 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/01/25 01:52:46 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 #include "../ft_lib/libft.h"
+#include "../ft_lib/cstack.h"
 
-int	main(int argv, char **argc)
+int	main(int argc, char **argv)
 {
-	int	val;
-	int	overflow;
+	t_head	t_head;
 
-	(void)argc;
-	(void)argv;
-	overflow = ft_errno(ft_atoi_ovfl("9999999999", &val));
-	printf("\n%12d over:%d\n", val, overflow);
-	overflow = ft_errno(ft_atoi_ovfl("-2147483648", &val));
-	printf("%12d over:%d\n", val, overflow);
-	overflow = ft_atoi_ovfl("2147483647", &val);
-	printf("%12d over:%d\n", val, overflow);
-	overflow = ft_atoi_ovfl("-2147483649", &val);
-	printf("%12d over:%d\n", val, overflow);
-	overflow = ft_atoi_ovfl("2147483649", &val);
-	printf("%12d over:%d\n", val, overflow);
+	if (argc < 2)
+		return (1);
+	else if (ft_errno(load_list(&t_head, argc, argv)))
+		return (2);
+	return (0);
 }
