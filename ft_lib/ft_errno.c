@@ -6,12 +6,13 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 02:32:16 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/25 01:01:43 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/01/28 04:14:08 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
+#include "errno.h"
 
 /*
 write error message to stderr, defined by err arg
@@ -20,16 +21,17 @@ write error message to stderr, defined by err arg
 */
 int	ft_errno(int err)
 {
-	char	*errstr[5];
+	char	*errstr[6];
 
-	errstr[0] = "Error1\n";
-	errstr[1] = "Error2\n";
-	errstr[2] = "Error3\n";
-	errstr[3] = "Error4\n";
-	errstr[4] = "Error5\n";
+	errstr[ERR_OK] = "OK!\n";
+	errstr[ERR_ATOI_OVER] = "Error(1) integer overflow\n";
+	errstr[ERR_DUPLICATE_VALUE] = "Error(2) duplicate value\n";
+	errstr[3] = "Error(3)\n";
+	errstr[ERR_MEMORY_ALLOCATION] = "Error(4) Memory allocation error\n";
+	errstr[ERR_NULL_POINTER] = "Error(5) NULL Pointer used\n";
 	if (err > 5 || err < 0)
 		write(2, "Undefined error\n", 16);
 	else if (err > 0)
-		write(2, errstr[err - 1], ft_strlen(errstr[err - 1]));
+		write(2, errstr[err], ft_strlen(errstr[err]));
 	return (err);
 }

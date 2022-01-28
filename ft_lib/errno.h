@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   errno.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 01:43:55 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/28 02:49:19 by cyetta           ###   ########.fr       */
+/*   Created: 2022/01/28 02:20:11 by cyetta            #+#    #+#             */
+/*   Updated: 2022/01/28 03:13:28 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <stddef.h>
-
-int		ft_atoi(const char *str);
-int		ft_atoi_ovfl(const char *str, int *resault);
-int		ft_errno(int err);
-int		ft_isdigit(int c);
-int		ft_isspace(char c);
-void	ft_itoa(int a);
-void	ft_itoan(int a);
-size_t	ft_strlen(const char *s);
+#ifndef ERRNO_H
+# define ERRNO_H
+# define ERR_OK 0
+# define ERR_ATOI_OVER 1
+# define ERR_DUPLICATE_VALUE 2
+# define ERR3 3
+# define ERR_MEMORY_ALLOCATION 4
+# define ERR_NULL_POINTER 5
 #endif

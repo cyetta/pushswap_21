@@ -6,12 +6,13 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 01:07:47 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/25 03:35:55 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/01/28 03:25:19 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "cstack.h"
+#include "errno.h"
 
 /*
 Splits source string s on substrings by space symbol (look ft_isspace)
@@ -34,6 +35,26 @@ static char	*ft_splits(char **s)
 	return (dest);
 }
 
+static int	ld_valinlist(t_head *hd, int val)
+{
+	int		i;
+	t_list	*t;
+
+	i = -1;
+	t = hd->lst_hd;
+	while (++i < hd->quantity)
+	{
+		if (val == t->value)
+			return (ERR_DUPLICATE_VALUE);
+		t = t->next;
+	}
+	t = ft_lstnew(val);
+	if (!t)
+		return (ERR_MEMORY_ALLOCATION);
+	ft_lstaddback(hd, t);
+	return (ERR_OK);
+}
+
 int	load_list(t_head *head, int argc, char **argv)
 {
 	int		i;
@@ -42,7 +63,6 @@ int	load_list(t_head *head, int argc, char **argv)
 	char	*s_forsplit;
 	char	*subs;
 
-	(void)head;
 	i = 0;
 	while (++i < argc)
 	{
@@ -54,8 +74,11 @@ int	load_list(t_head *head, int argc, char **argv)
 			if (err)
 				return (err);
 			ft_itoan(val);
+			err = ld_valinlist(head, val);
+			if (err)
+				return (err);
 			subs = ft_splits(&s_forsplit);
 		}
 	}
-	return (0);
+	return (ERR_OK);
 }

@@ -6,61 +6,73 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:05:47 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/25 21:47:46 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/01/28 03:23:56 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cstack.h"
 #include <stdlib.h>
+#include "cstack.h"
+#include "errno.h"
 
 /*
-delete element from list
+delete item from list
 */
-void	ft_lstdelelm(t_list *pnt)
+void	ft_lstdelitm(t_list *pnt)
 {
 	if (!pnt)
-		return (4);
+		return ;
 	pnt->prev->next = pnt->next;
 	pnt->next->prev = pnt->prev;
 	free(pnt);
 }
 
+/*
+delete list at all
+*/
+void	ft_lstdellst(t_list *pnt)
+{
+	if (!pnt)
+		return ;
+	while (pnt->next != pnt)
+		ft_lstdelitm(pnt);
+	free(pnt);
+}
+
+/*
+delete n - item in list by modulo of quantity
+*/
 void	ft_lstdelhdelm(t_head *hd, int idx)
 {
 	t_list	*pnt;
 
 	if (!hd || !hd->lst_hd || !hd->quantity)
-		return (5);
+		return ;
 	idx = idx % hd->quantity;
 	pnt = hd->lst_hd;
 	while (idx--)
 		pnt = pnt->next;
 	if (hd->lst_hd == pnt)
 		hd->lst_hd = pnt->next;
-	ft_lstdelelm(pnt);
+	ft_lstdelitm(pnt);
 	if (!(--hd->quantity))
 		hd->lst_hd = NULL;
 }
-!!!!!
-void	ft_lstfree(t_head *hd)
+
+/*
+delete list at all
+*/
+void	ft_lsthdfree(t_head *hd)
 {
 	t_list	*pnt;
 
-	if (!pnt || !hd->lst_hd || hd->quantity)
-		return (4);
+	if (!hd || !hd->lst_hd || !hd->quantity)
+		return ;
 	pnt = hd->lst_hd;
-	while (pnt != hd->lst_hd)
+	while (pnt->next != hd->lst_hd)
 	{
-		/* code */
+		pnt = pnt->next;
+		free(pnt->prev);
 	}
-
-
-
-
-	pnt->prev->next = pnt->next;
-	pnt->next->prev = pnt->prev;
-	if (hd->lst_hd == pnt)
-		hd->lst_hd = pnt->next;
-	hd->quantity--;
 	free(pnt);
+	ft_lsthdinit(hd);
 }

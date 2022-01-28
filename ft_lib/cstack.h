@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 00:07:34 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/25 19:57:56 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/01/28 01:38:04 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ typedef struct s_lsthead
 int		load_list(t_head *head, int argc, char **argv);
 int		ft_lstaddfront(t_head *hd, t_list *lst);
 int		ft_lstaddback(t_head *hd, t_list *lst);
+void	ft_lstdelitm(t_list *pnt);
+void	ft_lstdellst(t_list *pnt);
+void	ft_lstdelhdelm(t_head *hd, int idx);
+void	ft_lsthdfree(t_head *hd);
 void	ft_lsthdinit(t_head *hd);
 t_list	*ft_lstnew(int val);
+void	ft_lstprint(t_head hd);
+void	ft_lstrprint(t_head hd);
 #endif
