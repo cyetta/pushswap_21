@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listld.c                                        :+:      :+:    :+:   */
+/*   ft_listload.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 01:07:47 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/28 03:25:19 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/05 20:55:05 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "cstack.h"
-#include "errno.h"
+#include "ft_libft.h"
+#include "ft_cstack.h"
+#include "ft_errno.h"
 
 /*
 Splits source string s on substrings by space symbol (look ft_isspace)
@@ -40,6 +40,7 @@ static int	ld_valinlist(t_head *hd, int val)
 	int		i;
 	t_list	*t;
 
+	ft_itoan(val); // remove it. debug purpose
 	i = -1;
 	t = hd->lst_hd;
 	while (++i < hd->quantity)
@@ -71,14 +72,13 @@ int	load_list(t_head *head, int argc, char **argv)
 		while (subs)
 		{
 			err = ft_atoi_ovfl(subs, &val);
-			if (err)
-				return (err);
-			ft_itoan(val);
-			err = ld_valinlist(head, val);
-			if (err)
-				return (err);
-			subs = ft_splits(&s_forsplit);
+			if (!err)
+				err = ld_valinlist(head, val);
+			if (!err)
+				subs = ft_splits(&s_forsplit);
+			else
+				return (err + ft_lsthdfree(head));
 		}
 	}
-	return (ERR_OK);
+	return (ERR_OK + ft_lsthdminmax(head));
 }

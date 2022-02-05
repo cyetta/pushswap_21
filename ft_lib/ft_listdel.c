@@ -6,13 +6,13 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:05:47 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/28 03:23:56 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/05 20:17:32 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "cstack.h"
-#include "errno.h"
+#include "ft_cstack.h"
+#include "ft_errno.h"
 
 /*
 delete item from list
@@ -61,12 +61,12 @@ void	ft_lstdelhdelm(t_head *hd, int idx)
 /*
 delete list at all
 */
-void	ft_lsthdfree(t_head *hd)
+int	ft_lsthdfree(t_head *hd)
 {
 	t_list	*pnt;
 
 	if (!hd || !hd->lst_hd || !hd->quantity)
-		return ;
+		return (ERR_OK);
 	pnt = hd->lst_hd;
 	while (pnt->next != hd->lst_hd)
 	{
@@ -75,4 +75,5 @@ void	ft_lsthdfree(t_head *hd)
 	}
 	free(pnt);
 	ft_lsthdinit(hd);
+	return (ERR_OK);
 }

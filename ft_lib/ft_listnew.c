@@ -6,12 +6,12 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:05:02 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/28 03:05:33 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/05 20:18:15 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include "cstack.h"
+#include <stdlib.h>
+#include "ft_cstack.h"
 
 /*
 Allocates (with malloc(3)) and returns a new element t_list. The t_list->value

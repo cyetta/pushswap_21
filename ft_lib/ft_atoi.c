@@ -6,12 +6,12 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 14:54:25 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/28 03:18:11 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/05 20:50:37 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "errno.h"
+#include "ft_libft.h"
+#include "ft_errno.h"
 
 /*
 return
@@ -60,7 +60,7 @@ int	ft_atoi_ovfl(const char *str, int *resault)
 	*resault = 0;
 	sign = ft_skip_to_dig(&s);
 	if (sign == 0)
-		return (2);
+		return (ERR_ATOI_NOTVALUE);
 	overflow = ERR_OK;
 	while (ft_isdigit(*s) && !overflow)
 	{

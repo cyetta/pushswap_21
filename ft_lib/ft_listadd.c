@@ -6,13 +6,15 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:36:52 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/28 03:44:26 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/05 20:29:37 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "cstack.h"
-#include "errno.h"
+#include <stdlib.h>
+#include "ft_cstack.h"
+#include "ft_errno.h"
+#include "ft_array.h"
 
 /*
 add item *lst to list *hd at the begin
@@ -54,10 +56,43 @@ int	ft_lstaddback(t_head *hd, t_list *lst)
 }
 
 /*
-NULL head of list
+reset head of list to NULL
 */
 void	ft_lsthdinit(t_head *hd)
 {
 	hd->lst_hd = NULL;
 	hd->quantity = 0;
+	hd->max = 0;
+	hd->min = 0;
+	hd->med = 0;
+}
+
+/*
+init variaable min, max, med in head of list
+*/
+int	ft_lsthdminmax(t_head *hd)
+{
+	t_list	*pnt;
+	int		i;
+	int		*arr;
+
+	if (!hd || !hd->lst_hd || !hd->quantity)
+		return (ERR_OK);
+	arr = malloc(sizeof(int) * hd->quantity);
+	if (!arr)
+		return (ERR_NULL_POINTER);
+	pnt = hd->lst_hd;
+	i = -1;
+	while (++i < hd->quantity)
+	{
+		arr[i] = pnt->value;
+		pnt = pnt->next;
+	}
+	ft_arrsort(arr, hd->quantity);
+ft_arrprnt(arr, hd->quantity); // test
+	hd->min = arr[0];
+	hd->max = arr[hd->quantity - 1];
+	hd->med = arr[hd->quantity / 2];
+	free (arr);
+	return (ERR_OK);
 }

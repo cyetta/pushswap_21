@@ -1,33 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listprint.c                                     :+:      :+:    :+:   */
+/*   ft_array.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 20:17:01 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/05 20:18:32 by cyetta           ###   ########.fr       */
+/*   Created: 2022/02/05 19:43:39 by cyetta            #+#    #+#             */
+/*   Updated: 2022/02/05 20:15:55 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_cstack.h"
 #include "ft_libft.h"
-
-void	ft_lstprint(t_head hd)
+/*
+Buble sort int array
+ */
+void	ft_arrsort(int *arr, int len)
 {
-	while (hd.quantity--)
+	int	i;
+	int	j;
+	int	t;
+
+	if (len < 2)
+		return ;
+	i = -1;
+	while (++i < len)
 	{
-		ft_itoan(hd.lst_hd->value);
-		hd.lst_hd = hd.lst_hd->next;
+		j = i;
+		while (++j < len)
+		{
+			if (arr[i] > arr[j])
+			{
+				t = arr[j];
+				arr[j] = arr[i];
+				arr[i] = t;
+			}
+		}
 	}
 }
 
-void	ft_lstrprint(t_head hd)
+/*
+print len items of array to stdout
+*/
+void	ft_arrprnt(int *arr, int len)
 {
-	while (hd.quantity--)
+	int	i;
+
+	if (len < 1)
+		return ;
+	i = -1;
+	while (++i < len)
 	{
-		hd.lst_hd = hd.lst_hd->prev;
-		ft_itoan(hd.lst_hd->value);
+		ft_itoan(arr[i]);
 	}
 }

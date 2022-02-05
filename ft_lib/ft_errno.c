@@ -6,13 +6,13 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 02:32:16 by cyetta            #+#    #+#             */
-/*   Updated: 2022/01/28 04:14:08 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/05 20:49:59 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
-#include "errno.h"
+#include "ft_libft.h"
+#include "ft_errno.h"
 
 /*
 write error message to stderr, defined by err arg
@@ -25,8 +25,8 @@ int	ft_errno(int err)
 
 	errstr[ERR_OK] = "OK!\n";
 	errstr[ERR_ATOI_OVER] = "Error(1) integer overflow\n";
-	errstr[ERR_DUPLICATE_VALUE] = "Error(2) duplicate value\n";
-	errstr[3] = "Error(3)\n";
+	errstr[ERR_ATOI_NOTVALUE] = "Error(2) not int value\n";
+	errstr[ERR_DUPLICATE_VALUE] = "Error(3) duplicate value\n";
 	errstr[ERR_MEMORY_ALLOCATION] = "Error(4) Memory allocation error\n";
 	errstr[ERR_NULL_POINTER] = "Error(5) NULL Pointer used\n";
 	if (err > 5 || err < 0)
