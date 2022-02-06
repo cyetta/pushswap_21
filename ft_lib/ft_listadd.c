@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:36:52 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/05 20:29:37 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/06 03:36:26 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,18 @@ int	ft_lstaddback(t_head *hd, t_list *lst)
 /*
 reset head of list to NULL
 */
-void	ft_lsthdinit(t_head *hd)
+int	ft_lsthdinit(t_head *hd)
 {
 	hd->lst_hd = NULL;
 	hd->quantity = 0;
 	hd->max = 0;
 	hd->min = 0;
 	hd->med = 0;
+	return (ERR_OK);
 }
 
 /*
-init variaable min, max, med in head of list
+init variable min, max, med in head of list
 */
 int	ft_lsthdminmax(t_head *hd)
 {
@@ -76,8 +77,10 @@ int	ft_lsthdminmax(t_head *hd)
 	int		i;
 	int		*arr;
 
-	if (!hd || !hd->lst_hd || !hd->quantity)
-		return (ERR_OK);
+	if (!hd)
+		return (ERR_NULL_POINTER);
+	else if (!hd->lst_hd || !hd->quantity)
+		return (ft_lsthdinit(hd));
 	arr = malloc(sizeof(int) * hd->quantity);
 	if (!arr)
 		return (ERR_NULL_POINTER);
@@ -89,7 +92,6 @@ int	ft_lsthdminmax(t_head *hd)
 		pnt = pnt->next;
 	}
 	ft_arrsort(arr, hd->quantity);
-ft_arrprnt(arr, hd->quantity); // test
 	hd->min = arr[0];
 	hd->max = arr[hd->quantity - 1];
 	hd->med = arr[hd->quantity / 2];
