@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 00:07:34 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/06 01:28:33 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/06 19:50:22 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,22 @@ typedef struct s_lsthead
 	t_list	*lst_hd;
 }	t_head;
 
-int		load_list(t_head *head, int argc, char **argv);
-int		ft_lstaddfront(t_head *hd, t_list *lst);
-int		ft_lstaddback(t_head *hd, t_list *lst);
+int		load_stack(t_head *head, int argc, char **argv);
 t_list	*ft_lstdelitm(t_list *pnt);
 void	ft_lstdellst(t_list *pnt);
-void	ft_lstdelhdelm(t_head *hd, int idx);
-int		ft_lsthdfree(t_head *hd);
-void	ft_lsthdinit(t_head *hd);
-int		ft_lsthdminmax(t_head *hd);
 t_list	*ft_lstnew(int val);
-void	ft_lstprint(t_head hd);
 t_list	*ft_lstrmvitm(t_list *pnt);
-void	ft_lstrprint(t_head hd);
-void	ft_arrsort(int *arr, int len);
+int		ft_stkaddfront(t_head *hd, t_list *lst);
+int		ft_stkaddback(t_head *hd, t_list *lst);
+void	ft_stkdelelm(t_head *hd, int idx);
+int		ft_stkfree(t_head *hd);
+int		ft_stkinit(t_head *hd);
+int		ft_stkminmax(t_head *hd);
+void	ft_stkprint(t_head hd);
+void	ft_stkprint2(t_head a, t_head b);
+void	ft_stkrprint(t_head hd);
+void	ft_stk_oprt(t_head *st);
+void	ft_stk_oprr(t_head *st);
+void	ft_stk_opswap(t_head *st);
+void	ft_stk_oppush(t_head *src, t_head *dst);
 #endif

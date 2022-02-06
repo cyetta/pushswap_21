@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listadd.c                                       :+:      :+:    :+:   */
+/*   ft_stk_add.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:36:52 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/06 03:36:26 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/06 18:36:51 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*
 add item *lst to list *hd at the begin
 */
-int	ft_lstaddfront(t_head *hd, t_list *lst)
+int	ft_stkaddfront(t_head *hd, t_list *lst)
 {
 	if (!hd || !lst)
 		return (ERR_NULL_POINTER);
@@ -38,7 +38,7 @@ int	ft_lstaddfront(t_head *hd, t_list *lst)
 /*
 add item *lst to list *hd at the end
 */
-int	ft_lstaddback(t_head *hd, t_list *lst)
+int	ft_stkaddback(t_head *hd, t_list *lst)
 {
 	if (!hd || !lst)
 		return (ERR_NULL_POINTER);
@@ -58,7 +58,7 @@ int	ft_lstaddback(t_head *hd, t_list *lst)
 /*
 reset head of list to NULL
 */
-int	ft_lsthdinit(t_head *hd)
+int	ft_stkinit(t_head *hd)
 {
 	hd->lst_hd = NULL;
 	hd->quantity = 0;
@@ -71,7 +71,7 @@ int	ft_lsthdinit(t_head *hd)
 /*
 init variable min, max, med in head of list
 */
-int	ft_lsthdminmax(t_head *hd)
+int	ft_stkminmax(t_head *hd)
 {
 	t_list	*pnt;
 	int		i;
@@ -80,7 +80,7 @@ int	ft_lsthdminmax(t_head *hd)
 	if (!hd)
 		return (ERR_NULL_POINTER);
 	else if (!hd->lst_hd || !hd->quantity)
-		return (ft_lsthdinit(hd));
+		return (ft_stkinit(hd));
 	arr = malloc(sizeof(int) * hd->quantity);
 	if (!arr)
 		return (ERR_NULL_POINTER);

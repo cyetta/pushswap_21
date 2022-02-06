@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listload.c                                      :+:      :+:    :+:   */
+/*   ft_stk_load.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 01:07:47 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/05 20:55:05 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/06 18:30:24 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ static char	*ft_splits(char **s)
 	return (dest);
 }
 
-static int	ld_valinlist(t_head *hd, int val)
+static int	ld_valinstk(t_head *hd, int val)
 {
 	int		i;
 	t_list	*t;
 
-	ft_itoan(val); // remove it. debug purpose
 	i = -1;
 	t = hd->lst_hd;
 	while (++i < hd->quantity)
@@ -52,11 +51,11 @@ static int	ld_valinlist(t_head *hd, int val)
 	t = ft_lstnew(val);
 	if (!t)
 		return (ERR_MEMORY_ALLOCATION);
-	ft_lstaddback(hd, t);
+	ft_stkaddback(hd, t);
 	return (ERR_OK);
 }
 
-int	load_list(t_head *head, int argc, char **argv)
+int	load_stack(t_head *head, int argc, char **argv)
 {
 	int		i;
 	int		val;
@@ -73,12 +72,12 @@ int	load_list(t_head *head, int argc, char **argv)
 		{
 			err = ft_atoi_ovfl(subs, &val);
 			if (!err)
-				err = ld_valinlist(head, val);
+				err = ld_valinstk(head, val);
 			if (!err)
 				subs = ft_splits(&s_forsplit);
 			else
-				return (err + ft_lsthdfree(head));
+				return (err + ft_stkfree(head));
 		}
 	}
-	return (ERR_OK + ft_lsthdminmax(head));
+	return (ERR_OK + ft_stkminmax(head));
 }
