@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 00:59:19 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/06 20:16:25 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/07 02:08:21 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,25 @@ int	main(int argc, char **argv)
 	pb(&st_a, &st_b);
 	pb(&st_a, &st_b);
 	ft_stkprint2(st_a, st_b);
-	sa(&st_a);
-	sb(&st_b);
-	ft_stkprint2(st_a, st_b);
-	ss(&st_a, &st_b);
-	ft_stkprint2(st_a, st_b);
 	ra(&st_a);
 	rb(&st_b);
 	ft_stkprint2(st_a, st_b);
-	rra(&st_a);
-	rrb(&st_b);
+	sa(&st_a);
+	sb(&st_b);
+	ft_stkprint2(st_a, st_b);
+	rr(&st_a, &st_b);
+	ft_stkprint2(st_a, st_b);
+	ss(&st_a, &st_b);
 	ft_stkprint2(st_a, st_b);
 	pa(&st_a, &st_b);
+	ft_stkprint2(st_a, st_b);
+	rrr(&st_a, &st_b);
+	ft_stkprint2(st_a, st_b);
+	pb(&st_a, &st_b);
+	pb(&st_a, &st_b);
+	ft_stkprint2(st_a, st_b);
+	rra(&st_a);
+	rrb(&st_b);
 	ft_stkprint2(st_a, st_b);
 	ft_stkfree(&st_a);
 	ft_stkfree(&st_b);

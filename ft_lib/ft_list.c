@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listnew.c                                       :+:      :+:    :+:   */
+/*   ft_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:05:02 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/06 18:20:45 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/07 01:04:34 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,16 @@ Returns pointer to next item. If item is last, returns NULL
 */
 t_list	*ft_lstrmvitm(t_list *pnt)
 {
+	t_list	*t;
+
 	if (!pnt || pnt->next == pnt)
 		return (NULL);
+	t = pnt->next;
 	pnt->prev->next = pnt->next;
 	pnt->next->prev = pnt->prev;
-	return (pnt->next);
+	pnt->next = pnt;
+	pnt->prev = pnt;
+	return (t);
 }
 
 /*
