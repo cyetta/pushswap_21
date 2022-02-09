@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 00:59:19 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/09 20:33:47 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/10 00:55:04 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 	else
 		ft_strprn("stack a is unsorted\n");
 	ft_stkprint2(st_a, st_b);
+	ft_stkfree(&st_a);
+	ft_stkfree(&st_b);
 	return (0);
 }
 
