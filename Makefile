@@ -1,7 +1,7 @@
 PRJ_N = push_swap
 BNS_N = checker
 
-SRC_P = main.c ft_stk_oprra.c ft_stk_oprrb.c  ft_stk_opswp.c
+SRC_P = main.c ft_is_sort.c ft_stk_oprra.c ft_stk_oprrb.c  ft_stk_opswp.c
 SRC_B = main.c
 
 P_PRJ = ./project/

@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 18:53:52 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/06 19:28:10 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/09 20:23:21 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@ void	sb(t_head *b);
 void	ss(t_head *a, t_head *b);
 void	pb(t_head *a, t_head *b);
 void	pa(t_head *a, t_head *b);
+int		is_upsort(t_head *st);
+int		is_presortedup(t_head *st);
 #endif
