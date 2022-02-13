@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:47:14 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/13 18:55:28 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/13 20:13:18 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,23 @@ int	presort3sa(t_head *st)
 	(st->lst_hd->value == st->max && st->lst_hd->next->value == st->med))
 		sa(st);
 	return (0);
+}
+
+int	get_stidxins(t_head *st, int val)
+{
+	t_list	*t;
+	int		idx;
+
+	idx = 0;
+	t = st->lst_hd;
+	idx = -1;
+	while (++idx < st->quantity)
+	{
+		if (t->value >= val && t->prev->value < val)
+			break ;
+		t = t->next;
+	}
+	return (idx);
 }
 
 int	pa_nextb(t_head *st_a, t_head *st_b)
