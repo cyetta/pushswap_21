@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:06:04 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/10 00:51:16 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/13 16:57:17 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ if idx in the first half of stack, returns -N ra command
 else returns +N rra command
 idx in range 0..(quantity-1)
 */
-static int	ra_rra(int idx, int quantity)
+int	ra_rra(int idx, int quantity)
 {
 	if (idx > quantity / 2)
 		return (quantity - idx);
@@ -51,7 +51,7 @@ int	is_presortedup(t_head *st)
 	return (st->quantity);
 }
 
-int	sort2up(t_head *st)
+int	sort2sa(t_head *st)
 {
 	if (st->lst_hd->value > st->lst_hd->next->value)
 		sa(st);
@@ -71,7 +71,7 @@ int	is_upsort(t_head *st)
 	if (st->quantity < 2)
 		return (2);
 	else if (st->quantity == 2)
-		return (sort2up(st));
+		return (sort2sa(st));
 	i = is_presortedup(st);
 	if (i == st->quantity)
 		return (0);

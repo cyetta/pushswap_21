@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 00:59:19 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/10 00:55:04 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/13 17:32:44 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	main(int argc, char **argv)
 	if (ft_errno(load_stack(&st_a, argc, argv)))
 		return (2);
 	ft_stkprint2(st_a, st_b);
-	if (is_upsort(&st_a))
-		ft_strprn("stack a is sorted\n");
+	if (!is_upsort(&st_a))
+		ft_stksort(&st_a, &st_b);
 	else
-		ft_strprn("stack a is unsorted\n");
+		ft_strprn("stack a is sorted\n");
 	ft_stkprint2(st_a, st_b);
 	ft_stkfree(&st_a);
 	ft_stkfree(&st_b);

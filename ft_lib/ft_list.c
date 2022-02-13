@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:05:02 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/07 01:04:34 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/13 19:18:33 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,33 @@ void	ft_lstdellst(t_list *pnt)
 		free(pnt->prev);
 	}
 	free(pnt);
+}
+
+/*
+returns index of min element in stack relativ pnt. *pnt points to min
+min, max, med must be initialized before.
+if returned quantity of stack element, stack head have not initialized
+*/
+int	ft_lst_min(t_list *pnt)
+{
+	int		min_idx;
+	int		i;
+	t_list	*t;
+
+	min_idx = 0;
+	if (!pnt || pnt->next == pnt)
+		return (min_idx);
+	i = 0;
+	t = pnt;
+	while (t->next != t)
+	{
+		t = t->next;
+		i++;
+		if (t->value < pnt->value)
+		{
+			pnt = t;
+			min_idx = i;
+		}
+	}
+	return (min_idx);
 }

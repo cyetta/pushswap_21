@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 00:07:34 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/06 19:50:22 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/13 18:40:00 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_stkaddback(t_head *hd, t_list *lst);
 void	ft_stkdelelm(t_head *hd, int idx);
 int		ft_stkfree(t_head *hd);
 int		ft_stkinit(t_head *hd);
+int		ft_stk_min(t_head st);
 int		ft_stkminmax(t_head *hd);
 void	ft_stkprint(t_head hd);
 void	ft_stkprint2(t_head a, t_head b);
