@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:47:14 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 22:01:55 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/14 22:22:06 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,14 +127,13 @@ int	ft_stksort(t_head *st_a, t_head *st_b)
 		else
 			pb(st_a, st_b);
 	}
-//ft_stkprint2(*st_a, *st_b);
 	presort3sa(st_a);
-//ft_stkprint2(*st_a, *st_b);
 	while (st_b->quantity > 0)
 	{
 		pa_nextb(st_a, st_b);
-// ft_stkprint2(*st_a, *st_b);
 	}
 	is_upsort(st_a);
 	return (0);
 }
+
+// ft_stkprint2(*st_a, *st_b);
