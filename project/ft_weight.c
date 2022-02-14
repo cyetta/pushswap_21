@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:03 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 19:56:43 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/14 21:03:07 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	fill_weight(t_elweigth *el)
 		ld_el_eq(el);
 	else if (el->qnt_a > 0 && el->qnt_b > 0)
 		ld_el_pos(el);
-	else if (el->qnt_a > 0 && el->qnt_b > 0)
+	else if (el->qnt_a < 0 && el->qnt_b < 0)
 		ld_el_neg(el);
 	else if (el->qnt_a >= 0 && el->qnt_b <= 0)
 	{

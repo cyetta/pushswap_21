@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:47:14 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 20:11:08 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/14 20:42:41 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ int	pa_nextb(t_head *st_a, t_head *st_b)
 	write_cmd(st_a, st_b, wt[min_i].cmd_a, wt[min_i].qnt_a);
 	write_cmd(st_a, st_b, wt[min_i].cmd_b, wt[min_i].qnt_b);
 	pa(st_a, st_b);
+	free(wt);
 	return (0);
 }
 
@@ -113,10 +114,13 @@ int	ft_stksort(t_head *st_a, t_head *st_b)
 		else
 			pb(st_a, st_b);
 	}
+ft_stkprint2(*st_a, *st_b);
 	presort3sa(st_a);
+ft_stkprint2(*st_a, *st_b);
 	while (st_b->quantity > 0)
 	{
 		pa_nextb(st_a, st_b);
+ft_stkprint2(*st_a, *st_b);
 	}
 	is_upsort(st_a);
 	return (0);
