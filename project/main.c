@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 00:59:19 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/13 17:32:44 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/14 16:07:23 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 #include "../ft_lib/ft_libft.h"
 #include "../ft_lib/ft_cstack.h"
 #include "pushswap.h"
+
+int	clear_stks(t_head *st_a, t_head *st_b, int ft_errno)
+{
+	ft_stkfree(st_a);
+	ft_stkfree(st_b);
+	return (ft_errno);
+}
 
 int	main(int argc, char **argv)
 {
@@ -33,9 +40,7 @@ int	main(int argc, char **argv)
 	else
 		ft_strprn("stack a is sorted\n");
 	ft_stkprint2(st_a, st_b);
-	ft_stkfree(&st_a);
-	ft_stkfree(&st_b);
-	return (0);
+	return (clear_stks(&st_a, &st_b, 0));
 }
 
 	// ft_stkrprint(st_a);
