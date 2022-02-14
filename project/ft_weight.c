@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:03 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 21:03:07 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/14 21:58:10 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	ld_el_eq(t_elweigth *el)
 	else
 	{
 		el->cmd_a = OP_RR;
+		el->qnt_a = -el->qnt_a;
 		el->cmd_b = OP_RB;
 		el->qnt_b = 0;
 	}

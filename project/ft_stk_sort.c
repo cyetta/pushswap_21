@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:47:14 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 20:42:41 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/14 22:01:55 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,18 @@ void	write_cmd(t_head *st_a, t_head *st_b, int cmd, int qnt)
 	}
 }
 
+// #include <stdio.h>
+
+// void	pr_wt(t_elweigth *wt, int qnt)
+// {
+// 	int	i;
+
+// 	i = -1;
+// 	printf("--wt---\n");
+// 	while (++i < qnt)
+// 		printf("%7d%7d%7d%7d%7d\n", wt[i].opsum, wt[i].cmd_a, wt[i].qnt_a, wt[i].cmd_b, wt[i].qnt_b);
+// }
+
 int	pa_nextb(t_head *st_a, t_head *st_b)
 {
 	t_elweigth	*wt;
@@ -102,6 +114,7 @@ int	pa_nextb(t_head *st_a, t_head *st_b)
 	free(wt);
 	return (0);
 }
+//pr_wt(wt, st_b->quantity);
 
 int	ft_stksort(t_head *st_a, t_head *st_b)
 {
@@ -114,13 +127,13 @@ int	ft_stksort(t_head *st_a, t_head *st_b)
 		else
 			pb(st_a, st_b);
 	}
-ft_stkprint2(*st_a, *st_b);
+//ft_stkprint2(*st_a, *st_b);
 	presort3sa(st_a);
-ft_stkprint2(*st_a, *st_b);
+//ft_stkprint2(*st_a, *st_b);
 	while (st_b->quantity > 0)
 	{
 		pa_nextb(st_a, st_b);
-ft_stkprint2(*st_a, *st_b);
+// ft_stkprint2(*st_a, *st_b);
 	}
 	is_upsort(st_a);
 	return (0);
