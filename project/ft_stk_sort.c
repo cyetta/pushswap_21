@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:47:14 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 22:22:06 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/17 19:36:17 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@
 
 /*
 	presort 3 element in stack
-	st->min, ->max, ->med must be initialised
+	st->min, ->max, must be initialised
 	stack contain 3 element, no more no less
 */
 int	presort3sa(t_head *st)
 {
 	if ((st->lst_hd->value == st->min && st->lst_hd->next->value == st->max) || \
-	(st->lst_hd->value == st->med && st->lst_hd->next->value == st->min) || \
-	(st->lst_hd->value == st->max && st->lst_hd->next->value == st->med))
+	(st->lst_hd->prev->value == st->max && st->lst_hd->next->value == st->min) \
+	|| (st->lst_hd->value == st->max && st->lst_hd->prev->value == st->min))
 		sa(st);
 	return (0);
 }
 
 /*
 return index of element that must be on top of stack
-for insert element from stack b
+for insert element from stack b befor it
 */
 int	get_stidxins(t_head *st, int val)
 {
@@ -52,6 +52,9 @@ int	get_stidxins(t_head *st, int val)
 	return (idx);
 }
 
+/*
+execute command cmd, qnt times for stacks
+*/
 void	write_cmd(t_head *st_a, t_head *st_b, int cmd, int qnt)
 {
 	int	i;
@@ -74,18 +77,9 @@ void	write_cmd(t_head *st_a, t_head *st_b, int cmd, int qnt)
 	}
 }
 
-// #include <stdio.h>
-
-// void	pr_wt(t_elweigth *wt, int qnt)
-// {
-// 	int	i;
-
-// 	i = -1;
-// 	printf("--wt---\n");
-// 	while (++i < qnt)
-// 		printf("%7d%7d%7d%7d%7d\n", wt[i].opsum, wt[i].cmd_a, wt[i].qnt_a, wt[i].cmd_b, wt[i].qnt_b);
-// }
-
+/*
+put next element from stack b to stack a
+*/
 int	pa_nextb(t_head *st_a, t_head *st_b)
 {
 	t_elweigth	*wt;
@@ -103,7 +97,7 @@ int	pa_nextb(t_head *st_a, t_head *st_b)
 	{
 		wt[i].qnt_b = ra_rra(i, st_b->quantity);
 		wt[i].qnt_a = ra_rra(get_stidxins(st_a, t->value), st_a->quantity);
-		fill_weight(&wt[i]);
+		fill_weight(&wt[i], t->value);
 		if (wt[i].opsum < wt[min_i].opsum)
 			min_i = i;
 		t = t->next;
@@ -114,18 +108,21 @@ int	pa_nextb(t_head *st_a, t_head *st_b)
 	free(wt);
 	return (0);
 }
-//pr_wt(wt, st_b->quantity);
 
 int	ft_stksort(t_head *st_a, t_head *st_b)
 {
 	while (st_a->quantity > 3)
 	{
 		if (st_a->lst_hd->value == st_a->max || \
-		st_a->lst_hd->value == st_a->med || \
 		st_a->lst_hd->value == st_a->min)
 			ra(st_a);
 		else
+		{
 			pb(st_a, st_b);
+			if (st_b->lst_hd->value < st_a->med && \
+			(st_a->quantity + st_b->quantity) > 10)
+				rb(st_b);
+		}
 	}
 	presort3sa(st_a);
 	while (st_b->quantity > 0)
@@ -135,5 +132,3 @@ int	ft_stksort(t_head *st_a, t_head *st_b)
 	is_upsort(st_a);
 	return (0);
 }
-
-// ft_stkprint2(*st_a, *st_b);

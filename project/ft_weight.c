@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:03 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 21:58:10 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/17 15:15:47 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	ld_el_neg(t_elweigth *el)
 	}
 }
 
-void	fill_weight(t_elweigth *el)
+void	fill_weight(t_elweigth *el, int val)
 {
 	if (el->qnt_a == el->qnt_b)
 		ld_el_eq(el);
@@ -84,4 +84,5 @@ void	fill_weight(t_elweigth *el)
 		el->cmd_b = OP_RRB;
 	}
 	el->opsum = el->qnt_a + el->qnt_b;
+	el->val = val;
 }

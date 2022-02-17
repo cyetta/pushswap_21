@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 18:53:52 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 18:43:44 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/17 15:15:44 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 typedef struct s_elweigth
 {
+	int	val;
 	int	opsum;
 	int	cmd_a;
 	int	qnt_a;
@@ -42,7 +43,7 @@ void	ss(t_head *a, t_head *b);
 void	pb(t_head *a, t_head *b);
 void	pa(t_head *a, t_head *b);
 int		ft_stksort(t_head *st_a, t_head *st_b);
-void	fill_weight(t_elweigth *el);
+void	fill_weight(t_elweigth *el, int val);
 int		is_upsort(t_head *st);
 int		is_presortedup(t_head *st);
 int		ra_rra(int idx, int quantity);

@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 00:59:19 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 22:23:45 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/17 19:31:37 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,43 +38,3 @@ int	main(int argc, char **argv)
 		ft_stksort(&st_a, &st_b);
 	return (clear_stks(&st_a, &st_b, 0));
 }
-
-	// else
-	// 	ft_strprn("stack a is sorted\n");
-	// ft_stkprint2(st_a, st_b);
-	// ft_stkprint2(st_a, st_b);
-	// ft_stkrprint(st_a);
-	// ft_stkdelelm(&st_a, 0);
-	// ft_stkdelelm(&st_a, 2);
-	// ft_stkprint(st_a);
-	// ft_stkdelelm(&st_a, 7);
-	// ft_stkprint(st_a);
-	// ft_stkdelelm(&st_a, 0);
-	// ft_stkdelelm(&st_a, 0);
-	// ft_stkprint(st_a);
-	// pb(&st_a, &st_b);
-	// pb(&st_a, &st_b);
-	// pb(&st_a, &st_b);
-	// ft_stkprint2(st_a, st_b);
-	// ra(&st_a);
-	// rb(&st_b);
-	// ft_stkprint2(st_a, st_b);
-	// sa(&st_a);
-	// sb(&st_b);
-	// ft_stkprint2(st_a, st_b);
-	// rr(&st_a, &st_b);
-	// ft_stkprint2(st_a, st_b);
-	// ss(&st_a, &st_b);
-	// ft_stkprint2(st_a, st_b);
-	// pa(&st_a, &st_b);
-	// ft_stkprint2(st_a, st_b);
-	// rrr(&st_a, &st_b);
-	// ft_stkprint2(st_a, st_b);
-	// pb(&st_a, &st_b);
-	// pb(&st_a, &st_b);
-	// ft_stkprint2(st_a, st_b);
-	// rra(&st_a);
-	// rrb(&st_b);
-	// ft_stkprint2(st_a, st_b);
-	// ft_stkfree(&st_a);
-	// ft_stkfree(&st_b);
