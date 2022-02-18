@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 00:59:19 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/18 18:26:32 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/18 20:56:39 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,19 +85,24 @@ int	is_ss(char *str, t_head *st_a, t_head *st_b)
 int	execute(t_head *st_a, t_head *st_b)
 {
 	char	*s_op;
+	int		err;
 
 	s_op = NULL;
-	while (getnextln(&s_op))
+	err = 0;
+	while (!err && getnextln(&s_op))
 	{
 		if (!is_rr(s_op, st_a, st_b) && !is_ss(s_op, st_a, st_b))
-		{
-			ft_strprn("Error\n");
-			exit(clear_stks(st_a, st_b, 1));
-		}
+			err = 1;
 		free(s_op);
 	}
-	if (*s_op != '\0' || s_op == NULL)
+	if (!s_op || err)
 	{
+		ft_strprn("Error\n");
+		exit(clear_stks(st_a, st_b, 1));
+	}
+	if (*s_op != '\0')
+	{
+		free(s_op);
 		ft_strprn("Error\n");
 		exit(clear_stks(st_a, st_b, 1));
 	}
@@ -113,7 +118,10 @@ int	main(int argc, char **argv)
 	ft_stkinit(&st_a);
 	ft_stkinit(&st_b);
 	if (argc < 2)
+	{
+		ft_strprn("Error\n");
 		return (1);
+	}
 	if (ft_errno(load_stack(&st_a, argc, argv)))
 		return (2);
 	if (ft_errno(execute(&st_a, &st_b)))
