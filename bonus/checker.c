@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 00:59:19 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/18 20:56:39 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/18 21:07:08 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,10 +118,7 @@ int	main(int argc, char **argv)
 	ft_stkinit(&st_a);
 	ft_stkinit(&st_b);
 	if (argc < 2)
-	{
-		ft_strprn("Error\n");
 		return (1);
-	}
 	if (ft_errno(load_stack(&st_a, argc, argv)))
 		return (2);
 	if (ft_errno(execute(&st_a, &st_b)))
