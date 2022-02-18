@@ -6,22 +6,14 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 00:59:19 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/17 19:31:37 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/18 00:33:34 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
 #include "../ft_lib/ft_libft.h"
 #include "../ft_lib/ft_cstack.h"
+#include "../ft_lib/ft_errno.h"
 #include "pushswap.h"
-
-int	clear_stks(t_head *st_a, t_head *st_b, int ft_errno)
-{
-	ft_stkfree(st_a);
-	ft_stkfree(st_b);
-	return (ft_errno);
-}
 
 int	main(int argc, char **argv)
 {

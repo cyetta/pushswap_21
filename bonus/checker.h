@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_libft.h                                         :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 01:43:55 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/18 00:29:57 by cyetta           ###   ########.fr       */
+/*   Created: 2022/02/18 00:39:42 by cyetta            #+#    #+#             */
+/*   Updated: 2022/02/18 00:40:58 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIBFT_H
-# define FT_LIBFT_H
-# include <stddef.h>
+#ifndef CHECKER_H
+# define CHECKER_H
 
-int		ft_atoi(const char *str);
-int		ft_atoi_ovfl(const char *str, int *resault);
-int		ft_isdigit(int c);
-int		ft_isspace(char c);
-void	ft_itoa(int a);
-void	ft_itoan(int a);
-size_t	ft_strlen(const char *s);
-void	ft_strprn(const char *str);
 #endif

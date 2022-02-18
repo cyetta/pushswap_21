@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:05:47 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/06 18:33:11 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/17 23:43:15 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,11 @@ int	ft_stkfree(t_head *hd)
 	ft_lstdellst(hd->lst_hd);
 	ft_stkinit(hd);
 	return (ERR_OK);
+}
+
+int	clear_stks(t_head *st_a, t_head *st_b, int ft_errno)
+{
+	ft_stkfree(st_a);
+	ft_stkfree(st_b);
+	return (ft_errno);
 }

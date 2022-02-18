@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 18:53:52 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/17 15:15:44 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/17 23:42:42 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ void	fill_weight(t_elweigth *el, int val);
 int		is_upsort(t_head *st);
 int		is_presortedup(t_head *st);
 int		ra_rra(int idx, int quantity);
-int		clear_stks(t_head *st_a, t_head *st_b, int ft_errno);
 #endif

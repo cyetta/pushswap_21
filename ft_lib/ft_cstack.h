@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 00:07:34 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/13 18:40:00 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/17 23:42:40 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void	ft_stk_oprt(t_head *st);
 void	ft_stk_oprr(t_head *st);
 void	ft_stk_opswap(t_head *st);
 void	ft_stk_oppush(t_head *src, t_head *dst);
+int		clear_stks(t_head *st_a, t_head *st_b, int ft_errno);
 #endif

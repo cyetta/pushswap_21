@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 14:54:25 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/05 20:50:37 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/18 00:29:21 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ static int	ft_skip_to_dig(char **str)
 
 /*
 Converting ascii numbers in the string to integer
-if no numbers found returned 2 and result=0
-if int32 overflowed returned 1 and resault undefined.
-if conversion no error returned 0 and int32 value.
-conversion ends on last number in string or resault overflow,
-rest symbols in string not parsed
+If no numbers found returned 2 and result=0
+If int32 overflowed returned 1 and resault undefined.
+If conversion error free, 0 and int32 value are returned.
+Conversion ends on last number in the string or on resault overflow,
+rest symbols in string not parsed.
 */
 int	ft_atoi_ovfl(const char *str, int *resault)
 {
@@ -74,6 +74,9 @@ int	ft_atoi_ovfl(const char *str, int *resault)
 	return (overflow);
 }
 
+/*
+classic atoi
+*/
 int	ft_atoi(const char *str)
 {
 	long long int	res;

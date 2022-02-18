@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 02:32:16 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/14 22:28:18 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/18 03:09:38 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ write error message to stderr, defined by err arg
 */
 int	ft_errno(int err)
 {
-	char	*errstr[6];
+	char	*errstr[7];
 
 	errstr[ERR_OK] = "OK!\n";
 	errstr[ERR_ATOI_OVER] = "Error\n";
@@ -29,7 +29,8 @@ int	ft_errno(int err)
 	errstr[ERR_DUPLICATE_VALUE] = "Error\n";
 	errstr[ERR_MEMORY_ALLOCATION] = "Error\n";
 	errstr[ERR_NULL_POINTER] = "Error\n";
-	if (err > 5 || err < 0)
+	errstr[ERR_NOT_A_COMMAND] = "Error\n";
+	if (err < 0 || err > 6)
 		write(2, "Error\n", 16);
 	else if (err > 0)
 		write(2, errstr[err], ft_strlen(errstr[err]));
