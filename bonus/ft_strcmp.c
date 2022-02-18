@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 00:39:42 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/18 18:24:22 by cyetta           ###   ########.fr       */
+/*   Created: 2021/10/08 13:11:06 by cyetta            #+#    #+#             */
+/*   Updated: 2022/02/18 18:25:28 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	res;
 
-int	ft_strcmp(const char *s1, const char *s2);
-int	getnextln(char **str);
-#endif
+	while (*s1 != '\0' && *s2 != '\0')
+	{
+		res = (*(unsigned char *)s1 - *(unsigned char *)s2);
+		if (res)
+			return (res);
+		s1++;
+		s2++;
+	}
+	res = (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (res);
+}

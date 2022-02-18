@@ -2,7 +2,7 @@ PRJ_N = push_swap
 BNS_N = checker
 
 SRC_P = main.c ft_is_sort.c ft_stk_oprra.c ft_stk_oprrb.c  ft_stk_opswp.c ft_stk_sort.c ft_weight.c
-SRC_B = main.c
+SRC_B = main.c ft_strcmp.c ft_gnl.c
 
 P_PRJ = ./project/
 P_BON = ./bonus/
@@ -40,7 +40,7 @@ ${BNS_N}:	libft ${OBJ_B}
 	${CC} ${CFLAG} -o $@ -L${P_FTL} ${OBJ_B} -lft
 
 debug:
-	${MAKE} CFLAG="${CFLAG} -g3" all
+	${MAKE} CFLAG="${CFLAG} -g3" bonus
 
 bonus:	${PRJ_N} ${BNS_N}
 

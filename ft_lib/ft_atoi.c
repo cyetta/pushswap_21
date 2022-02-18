@@ -6,7 +6,7 @@
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 14:54:25 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/18 00:29:21 by cyetta           ###   ########.fr       */
+/*   Updated: 2022/02/18 18:40:48 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	ft_atoi_ovfl(const char *str, int *resault)
 		s++;
 	}
 	*resault = sign * (int)res;
+	if (!ft_isspace(*s) && *s != '\0')
+		overflow = ERR_ATOI_NOTVALUE;
 	return (overflow);
 }
 

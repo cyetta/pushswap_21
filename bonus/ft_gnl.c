@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_gnl.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyetta <cyetta@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 00:39:42 by cyetta            #+#    #+#             */
-/*   Updated: 2022/02/18 18:24:22 by cyetta           ###   ########.fr       */
+/*   Created: 2022/02/18 13:50:44 by cyetta            #+#    #+#             */
+/*   Updated: 2022/02/18 18:26:16 by cyetta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include <unistd.h>
+#include <stdlib.h>
+#include "checker.h"
 
-int	ft_strcmp(const char *s1, const char *s2);
-int	getnextln(char **str);
-#endif
+int	getnextln(char **str)
+{
+	int		i;
+	int		rd;
+	char	*buf;
+
+	buf = malloc(10);
+	if (!buf)
+		return (0);
+	*str = buf;
+	i = 0;
+	while (i < 9)
+	{
+		rd = read(0, &buf[i], 1);
+		if (rd <= 0 || buf[i] == '\n')
+			break ;
+		i++;
+	}
+	buf[i] = '\0';
+	return (rd);
+}
