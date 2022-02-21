@@ -21,7 +21,6 @@ OBJ_B	= ${SRCS_B:.c=.o}
 
 DPDS	= ${SRCS_P:.c=.d} ${SRCS_B:.c=.d}
 
-
 all:	libft ${NAME}
 
 %.o : %.c
